@@ -1,9 +1,7 @@
-variable "cidr" {
-  type = "string"
-
-}
-
-variable "tag" {
+variable "ami" {
   type = "string"
 }
 
+variable "vpc-cidr" {
+  type = "string"
+}
