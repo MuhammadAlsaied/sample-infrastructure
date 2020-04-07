@@ -18,7 +18,7 @@ resource "local_file" "nsance-key" {
 
 
 resource "aws_secretsmanager_secret" "ec2-private" {
-  name = "private-key"
+  name = "ec2-private"
 }
 
 resource "aws_secretsmanager_secret_version" "secret" {
