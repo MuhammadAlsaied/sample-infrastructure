@@ -42,7 +42,7 @@ resource "aws_instance" "ec2-web-server-2" {
   }
 
 }
-resource "aws_instance" "ec2-db-server-1" {
+resource "aws_instance" "ec2-gocd-server" {
   ami           = "${var.ami}"
   instance_type = "t2.micro"
   subnet_id     = "${aws_subnet.private-subnet-a.id}"
@@ -51,13 +51,13 @@ resource "aws_instance" "ec2-db-server-1" {
   key_name = "${aws_key_pair.insance-key.key_name}"
 
   tags = {
-    Name = "db-server"
+    Name = "gocd-server"
   }
 
 }
 
 
-resource "aws_instance" "ec2-db-server-2" {
+resource "aws_instance" "ec2-nexus-server" {
   ami           = "${var.ami}"
   instance_type = "t2.micro"
   subnet_id     = "${aws_subnet.private-subnet-b.id}"
@@ -66,7 +66,7 @@ resource "aws_instance" "ec2-db-server-2" {
   key_name = "${aws_key_pair.insance-key.key_name}"
 
   tags = {
-    Name = "db-server"
+    Name = "nexus-server"
   }
 
 }
