@@ -4,7 +4,7 @@ resource "aws_instance" "ec2-bastian" {
   subnet_id     = "${aws_subnet.public-subnet-a.id}"
   vpc_security_group_ids = ["${aws_security_group.allow-incoming-remote-ssh.id}",
   "${aws_security_group.allow-outgoing-internal-ssh.id}"]
-  key_name = "${aws_key_pair.insance-key.key_name}"
+  key_name = "${aws_key_pair.instance-key.key_name}"
 
   tags = {
     Name = "bastion"
@@ -20,7 +20,7 @@ resource "aws_instance" "ec2-web-server-1" {
   vpc_security_group_ids = ["${aws_security_group.allow-incoming-internal-ssh.id}",
     "${aws_security_group.allow-incoming-http.id}",
   "${aws_security_group.allow-outgoing-http.id}"]
-  key_name = "${aws_key_pair.insance-key.key_name}"
+  key_name = "${aws_key_pair.instance-key.key_name}"
 
   tags = {
     Name = "web-server"
@@ -35,7 +35,7 @@ resource "aws_instance" "ec2-web-server-2" {
   vpc_security_group_ids = ["${aws_security_group.allow-incoming-internal-ssh.id}",
     "${aws_security_group.allow-incoming-http.id}",
   "${aws_security_group.allow-outgoing-http.id}"]
-  key_name = "${aws_key_pair.insance-key.key_name}"
+  key_name = "${aws_key_pair.instance-key.key_name}"
 
   tags = {
     Name = "web-server"
@@ -48,7 +48,7 @@ resource "aws_instance" "ec2-gocd-server" {
   subnet_id     = "${aws_subnet.public-subnet-a.id}"
   vpc_security_group_ids = ["${aws_security_group.allow-incoming-internal-ssh.id}",
   "${aws_security_group.allow-outgoing-http.id}"]
-  key_name = "${aws_key_pair.insance-key.key_name}"
+  key_name = "${aws_key_pair.instance-key.key_name}"
 
   tags = {
     Name = "gocd-server"
@@ -63,7 +63,7 @@ resource "aws_instance" "ec2-nexus-server" {
   subnet_id     = "${aws_subnet.public-subnet-b.id}"
   vpc_security_group_ids = ["${aws_security_group.allow-incoming-internal-ssh.id}",
   "${aws_security_group.allow-outgoing-http.id}"]
-  key_name = "${aws_key_pair.insance-key.key_name}"
+  key_name = "${aws_key_pair.instance-key.key_name}"
 
   tags = {
     Name = "nexus-server"
