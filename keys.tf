@@ -10,7 +10,7 @@ resource "aws_key_pair" "insance-key" {
 
 
 
-resource "local_file" "nsance-key" {
+resource "local_file" "instance-key" {
   content  = "${tls_private_key.magic-key.private_key_pem}"
   filename = "instance-key.pem"
 
