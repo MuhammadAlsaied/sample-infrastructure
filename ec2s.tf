@@ -45,7 +45,7 @@ resource "aws_instance" "ec2-web-server-2" {
 resource "aws_instance" "ec2-gocd-server" {
   ami           = "${var.ami}"
   instance_type = "t2.micro"
-  subnet_id     = "${aws_subnet.private-subnet-a.id}"
+  subnet_id     = "${aws_subnet.public-subnet-a.id}"
   vpc_security_group_ids = ["${aws_security_group.allow-incoming-internal-ssh.id}",
   "${aws_security_group.allow-outgoing-http.id}"]
   key_name = "${aws_key_pair.insance-key.key_name}"
@@ -60,7 +60,7 @@ resource "aws_instance" "ec2-gocd-server" {
 resource "aws_instance" "ec2-nexus-server" {
   ami           = "${var.ami}"
   instance_type = "t2.micro"
-  subnet_id     = "${aws_subnet.private-subnet-b.id}"
+  subnet_id     = "${aws_subnet.public-subnet-b.id}"
   vpc_security_group_ids = ["${aws_security_group.allow-incoming-internal-ssh.id}",
   "${aws_security_group.allow-outgoing-http.id}"]
   key_name = "${aws_key_pair.insance-key.key_name}"

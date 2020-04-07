@@ -23,10 +23,6 @@ resource "aws_route_table_association" "public-rt-b" {
 
 resource "aws_route_table" "private-rt" {
   vpc_id = "${aws_vpc.vpc-magic.id}"
-  route {
-    cidr_block = "0.0.0.0/0"
-    gateway_id = "${aws_internet_gateway.gw-magic.id}"
-  }
 }
 
 resource "aws_route_table_association" "private-rt-a" {
