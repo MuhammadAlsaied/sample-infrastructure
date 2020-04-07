@@ -17,12 +17,13 @@ resource "local_file" "instance-key" {
 }
 
 
-resource "aws_secretsmanager_secret" "ec2-private" {
-  name = "ec2-private"
+resource "aws_secretsmanager_secret" "ec2-secret" {
+  name                    = "ec2-secret"
+  recovery_window_in_days = 0
 }
 
 resource "aws_secretsmanager_secret_version" "secret" {
-  secret_id     = "${aws_secretsmanager_secret.ec2-private.id}"
+  secret_id     = "${aws_secretsmanager_secret.ec2-secret.id}"
   secret_string = "${tls_private_key.magic-key.private_key_pem}"
 }
 
