@@ -1,7 +1,14 @@
 pipeline {
   agent any
   stages {
-  stage('terraform init') {
+      stage('terraform init') {
+      steps {
+        script {
+          sh "terraform init"
+        }
+      }
+    }
+  stage('terraform destroy') {
       steps {
         script {
           sh "terraform destroy -var-file dev.tfvars -auto-approve"
