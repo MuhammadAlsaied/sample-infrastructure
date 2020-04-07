@@ -1,0 +1,13 @@
+pipeline {
+  agent any
+  stages {
+  stage('terraform init') {
+      steps {
+        script {
+          sh "terraform destroy -var-file dev.tfvars -auto-approve"
+        }
+      }
+    }
+  }
+}
+

@@ -1,10 +1,18 @@
 pipeline {
   agent any
   stages {
-  stage('Stage 1') {
+  stage('terraform init') {
       steps {
         script {
-          terraform plan -var-file dev.tfvars -auto-approve
+          sh "terraform init"
+        }
+      }
+    }
+
+     stage('terraform apply') {
+      steps {
+        script {
+          sh "terraform apply -var-file dev.tfvars -auto-approve"
         }
       }
     }
