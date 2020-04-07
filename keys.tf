@@ -3,8 +3,8 @@ resource "tls_private_key" "magic-key" {
   rsa_bits  = 4096
 }
 
-resource "aws_key_pair" "insance-key" {
-  key_name   = "insance-key"
+resource "aws_key_pair" "instance-key" {
+  key_name   = "instance-key"
   public_key = "${tls_private_key.magic-key.public_key_openssh}"
 }
 

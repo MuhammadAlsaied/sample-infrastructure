@@ -66,6 +66,13 @@ resource "aws_security_group" "allow-outgoing-http" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+    egress {
+    from_port   = 433
+    to_port     = 433
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port   = -1
     to_port     = -1
